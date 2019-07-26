@@ -1,0 +1,28 @@
+body a {
+    font-family: arial, sans-serif;
+    font-size: 13px;
+    color: #222;
+}
+a {
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 10px;
+}
+li.left {
+    float: left;
+}
+li.right {
+    float: right;
+}
+.icon {
+    height: 18px;
+}
