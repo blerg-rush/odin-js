@@ -34,6 +34,25 @@ li.right {
 }
 .main {
     padding-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
+}
+.buttons {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.button {
+    margin: 0 3px;
+}
+#logo {
+    width: 272px;
+    height: 92px;
+    display: block;
+    margin: auto;
+    padding-bottom: 10px;
+}
+#search-bar {
+    width: 600px;
+    height: 40px;
+    display: block;
+    margin: auto;
 }
