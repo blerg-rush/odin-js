@@ -17,6 +17,47 @@
               return('Scissors');
           }
         }
+
+        function playRound(playerSelection, computerSelection){
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+            let win = `You won! ${playerSelection} beats ${computerSelection}`;
+            let lose = `You lose! ${computerSelection} beats ${playerSelection}`;
+            let draw = `You draw! Both played ${playerSelection}`;
+
+            if(player == 'rock'){
+                switch(computer){
+                    case 'rock':
+                    return draw;
+                    case 'paper':
+                    return lose;
+                    case 'scissors':
+                    return win;
+                }
+            }else if(player == 'paper'){
+                switch(computer){
+                    case 'rock':
+                    return win;
+                    case 'paper':
+                    return draw;
+                    case 'scissors':
+                    return lose;
+                }
+            }else if(player == 'scissors'){
+                switch(computer){
+                    case 'rock':
+                    return lose;
+                    case 'paper':
+                    return win;
+                    case 'scissors':
+                    return draw;
+                }
+            }else{
+                return 'Hey, no cheating! Try again.';
+            }
+        }
+
+
     </script>
 </body>
 
