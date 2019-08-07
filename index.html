@@ -57,7 +57,33 @@
             }
         }
 
+        function game(){
+            let playerScore = 0;
+            let computerScore = 0;
+            let selection;
+            let result;
 
+            while((playerScore < 5) && (computerScore < 5)){
+                selection = prompt('Rock, Paper, or Scissors?');
+                result = playRound(selection,computerPlay());
+                
+                if(result.split(' ')[1] == 'won!'){
+                    playerScore++;
+                }else if(result.split(' ')[1] == 'lose!'){
+                    computerScore++;
+                }else{
+                    //draw or invalid
+                }
+
+                alert(`${result}\nScore: ${playerScore} - ${computerScore}`);
+            }
+
+            if(playerScore == 5){
+                return 'You beat the computer!';
+            }else{
+                return 'Sorry, the computer beat you.';
+            }
+        }
     </script>
 </body>
 
