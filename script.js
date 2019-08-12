@@ -9,46 +9,43 @@ function computerPlay(){
   }
 }
 
-function playRound(playerSelection, computerSelection){
-    let player = playerSelection.toLowerCase();
-    let computer = computerSelection.toLowerCase();
-    let win = `You won! ${playerSelection} beats ${computerSelection}`;
-    let lose = `You lose! ${computerSelection} beats ${playerSelection}`;
-    let draw = `You draw! Both played ${playerSelection}`;
+function playRound(pSelect, cSelect){
+    let player = pSelect.toLowerCase();
+    let computer = cSelect.toLowerCase();
 
     if(player == 'rock'){
         switch(computer){
-            case 'rock': return draw;
-            case 'paper': return lose;
-            case 'scissors': return win;
+            case 'rock': return draw(pSelect);
+            case 'paper': return lose(pSelect, cSelect);
+            case 'scissors': return win(pSelect, cSelect);
         }
     }else if(player == 'paper'){
         switch(computer){
-            case 'rock': return win;
-            case 'paper': return draw;
-            case 'scissors': return lose;
+            case 'rock': return win(pSelect, cSelect);
+            case 'paper': return draw(pSelect);
+            case 'scissors': return lose(pSelect, cSelect);
         }
     }else if(player == 'scissors'){
         switch(computer){
-            case 'rock': return lose;
-            case 'paper': return win;
-            case 'scissors': return draw;
+            case 'rock': return lose(pSelect, cSelect);
+            case 'paper': return win(pSelect, cSelect);
+            case 'scissors': return draw(pSelect);
         }
     }else{
         return 'Hey, no cheating! Try again.';
     }
 }
 
-function win(playerSelection,computerSelection){
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+function win(pSelect,cSelect){
+    return `You won! ${pSelect} beats ${cSelect}`;
 }
 
-function lose(playerSelection,computerSelection){
-    return `You lose. ${computerSelection} beats ${playerSelection}`;
+function lose(pSelect,cSelect){
+    return `You lose. ${cSelect} beats ${pSelect}`;
 }
 
-function draw(playerSelection){
-    return `You draw. Both played ${playerSelection}`
+function draw(pSelect){
+    return `You draw. Both played ${pSelect}`
 }
 /*
 function playGame(){
