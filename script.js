@@ -1,3 +1,10 @@
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        playRound(button.textContent, computerPlay());
+    })
+})
+
 function computerPlay(){
     choice = Math.floor((Math.random() * 3));
   if(choice == 0){
@@ -10,29 +17,24 @@ function computerPlay(){
 }
 
 function playRound(pSelect, cSelect){
-    let player = pSelect.toLowerCase();
-    let computer = cSelect.toLowerCase();
-
-    if(player == 'rock'){
-        switch(computer){
-            case 'rock': return draw(pSelect);
-            case 'paper': return lose(pSelect, cSelect);
-            case 'scissors': return win(pSelect, cSelect);
+    if(pSelect == 'Rock'){
+        switch(cSelect){
+            case 'Rock': return draw(pSelect);
+            case 'Paper': return lose(pSelect, cSelect);
+            case 'Scissors': return win(pSelect, cSelect);
         }
-    }else if(player == 'paper'){
-        switch(computer){
-            case 'rock': return win(pSelect, cSelect);
-            case 'paper': return draw(pSelect);
-            case 'scissors': return lose(pSelect, cSelect);
-        }
-    }else if(player == 'scissors'){
-        switch(computer){
-            case 'rock': return lose(pSelect, cSelect);
-            case 'paper': return win(pSelect, cSelect);
-            case 'scissors': return draw(pSelect);
+    }else if(pSelect == 'Paper'){
+        switch(cSelect){
+            case 'Rock': return win(pSelect, cSelect);
+            case 'Paper': return draw(pSelect);
+            case 'Scissors': return lose(pSelect, cSelect);
         }
     }else{
-        return 'Hey, no cheating! Try again.';
+        switch(cSelect){
+            case 'Rock': return lose(pSelect, cSelect);
+            case 'Paper': return win(pSelect, cSelect);
+            case 'Scissors': return draw(pSelect);
+        }
     }
 }
 
@@ -47,6 +49,7 @@ function lose(pSelect,cSelect){
 function draw(pSelect){
     return `You draw. Both played ${pSelect}`
 }
+
 /*
 function playGame(){
     let playerScore = 0;
@@ -60,7 +63,7 @@ function playGame(){
         
         if(result.split(' ')[1] == 'won!'){
             playerScore++;
-        }else if(result.split(' ')[1] == 'lose!'){
+        }else if(result.split(' ')[1] == 'lose.'){
             computerScore++;
         }else{
             //draw or invalid
@@ -78,6 +81,7 @@ function playGame(){
     replay();
 }
 */
+
 function replay(){
     confirm('Would you like to play again?') ? playGame() : alert('Reload if you change your mind!');
 }
