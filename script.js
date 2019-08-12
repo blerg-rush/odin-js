@@ -1,7 +1,10 @@
+const results = document.querySelector('#results');
+const comp = document.querySelector('#comp');
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        playRound(button.textContent, computerPlay());
+    playRound(button.textContent, computerPlay());
     })
 })
 
@@ -17,29 +20,36 @@ function computerPlay(){
 }
 
 function playRound(pSelect, cSelect){
+    comp.textContent = `Computer played ${cSelect}`;
     if(pSelect == 'Rock'){
         switch(cSelect){
-            case 'Rock': return draw(pSelect);
-            case 'Paper': return lose(pSelect, cSelect);
-            case 'Scissors': return win(pSelect, cSelect);
+            case 'Rock': results.textContent = draw(pSelect);
+            break;
+            case 'Paper': results.textContent = lose(pSelect, cSelect);
+            break;
+            case 'Scissors': results.textContent = win(pSelect, cSelect);
         }
     }else if(pSelect == 'Paper'){
         switch(cSelect){
-            case 'Rock': return win(pSelect, cSelect);
-            case 'Paper': return draw(pSelect);
-            case 'Scissors': return lose(pSelect, cSelect);
+            case 'Rock': results.textContent = win(pSelect, cSelect);
+            break;
+            case 'Paper': results.textContent = draw(pSelect);
+            break;
+            case 'Scissors': results.textContent = lose(pSelect, cSelect);
         }
     }else{
         switch(cSelect){
-            case 'Rock': return lose(pSelect, cSelect);
-            case 'Paper': return win(pSelect, cSelect);
-            case 'Scissors': return draw(pSelect);
+            case 'Rock': results.textContent = lose(pSelect, cSelect);
+            break;
+            case 'Paper': results.textContent = win(pSelect, cSelect);
+            break;
+            case 'Scissors': results.textContent = draw(pSelect);
         }
     }
 }
 
 function win(pSelect,cSelect){
-    return `You won! ${pSelect} beats ${cSelect}`;
+    return `You win! ${pSelect} beats ${cSelect}`;
 }
 
 function lose(pSelect,cSelect){
@@ -61,7 +71,7 @@ function playGame(){
         selection = prompt('Rock, Paper, or Scissors?');
         result = playRound(selection,computerPlay());
         
-        if(result.split(' ')[1] == 'won!'){
+        if(result.split(' ')[1] == 'win!'){
             playerScore++;
         }else if(result.split(' ')[1] == 'lose.'){
             computerScore++;
@@ -86,4 +96,4 @@ function replay(){
     confirm('Would you like to play again?') ? playGame() : alert('Reload if you change your mind!');
 }
 
-playGame();
+//playGame();
