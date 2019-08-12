@@ -18,36 +18,39 @@ function playRound(playerSelection, computerSelection){
 
     if(player == 'rock'){
         switch(computer){
-            case 'rock':
-            return draw;
-            case 'paper':
-            return lose;
-            case 'scissors':
-            return win;
+            case 'rock': return draw;
+            case 'paper': return lose;
+            case 'scissors': return win;
         }
     }else if(player == 'paper'){
         switch(computer){
-            case 'rock':
-            return win;
-            case 'paper':
-            return draw;
-            case 'scissors':
-            return lose;
+            case 'rock': return win;
+            case 'paper': return draw;
+            case 'scissors': return lose;
         }
     }else if(player == 'scissors'){
         switch(computer){
-            case 'rock':
-            return lose;
-            case 'paper':
-            return win;
-            case 'scissors':
-            return draw;
+            case 'rock': return lose;
+            case 'paper': return win;
+            case 'scissors': return draw;
         }
     }else{
         return 'Hey, no cheating! Try again.';
     }
 }
 
+function win(playerSelection,computerSelection){
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+}
+
+function lose(playerSelection,computerSelection){
+    return `You lose. ${computerSelection} beats ${playerSelection}`;
+}
+
+function draw(playerSelection){
+    return `You draw. Both played ${playerSelection}`
+}
+/*
 function playGame(){
     let playerScore = 0;
     let computerScore = 0;
@@ -77,7 +80,7 @@ function playGame(){
 
     replay();
 }
-
+*/
 function replay(){
     confirm('Would you like to play again?') ? playGame() : alert('Reload if you change your mind!');
 }
