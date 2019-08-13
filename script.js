@@ -48,8 +48,10 @@ function setSquareSize(){
 
 }
 
-function draw(){
-
+function reSize(){
+    let newSize = prompt('How many squares per side?');
+    createContainer(newSize);
 }
 
 createContainer(gridSize);
+
