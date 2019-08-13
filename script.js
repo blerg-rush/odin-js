@@ -2,10 +2,13 @@ const content = document.querySelector('#content');
 let gridSize = 16;
 let gridWidth = 500;
 let squareSize = Math.floor(gridWidth / gridSize);
+let color = 'black';
 
 function createContainer(gridSize){
+    content.innerHTML = '';
     content.style.width = `${gridWidth}px`;
     content.style.height = `${gridWidth}px`;
+    content.style.margin = 'auto';
     content.style.display = 'grid';
     content.style.gridGap = '0px';
     content.style.justifyContent = 'center';
@@ -18,22 +21,23 @@ function createContainer(gridSize){
 function createGrid(gridSize){
     for(i=0 ; i<gridSize; i++){
         for(j=0 ; j<gridSize; j++){
-            createSquare(j,i);
+            createSquare(gridSize,j,i);
         }
     }
 }
 
-function createSquare(x,y){
+function createSquare(gridSize,x,y){
+    squareSize = Math.floor(gridWidth / gridSize);
     const square = document.createElement('div');
     square.setAttribute('id', `${x},${y}`);
-    square.classList.add('square');
+    square.addEventListener('mouseenter', () => square.style.backgroundColor = color);
     style(square,x,y);
     content.appendChild(square);
 }
 
 function style(square,x,y){
-    square.style.width = `${squareSize - 2}px`;
-    square.style.height = `${squareSize - 2}px`;
+    square.style.width = `${squareSize - 1}px`;
+    square.style.height = `${squareSize - 1}px`;
     square.style.display = 'inline-block';
     square.style.border = '1px solid black';
     if(x > 0) square.style.borderLeft = 'none';
@@ -47,3 +51,5 @@ function setSquareSize(){
 function draw(){
 
 }
+
+createContainer(gridSize);
