@@ -1,7 +1,7 @@
 const content = document.querySelector('#content');
 let gridSize = 16;
 let gridWidth = 500;
-let squareSize = 30;
+let squareSize = Math.floor(gridWidth / gridSize);
 
 content.style.width = `${gridWidth}px`;
 content.style.height = `${gridWidth}px`;
