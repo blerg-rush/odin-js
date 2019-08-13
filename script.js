@@ -1,4 +1,5 @@
 const content = document.querySelector('#content');
+const resizeButton = document.querySelector('#resize');
 let gridSize = 16;
 let gridWidth = 500;
 let squareSize = Math.floor(gridWidth / gridSize);
@@ -55,3 +56,4 @@ function reSize(){
 
 createContainer(gridSize);
 
+resizeButton.addEventListener('click', reSize); 
