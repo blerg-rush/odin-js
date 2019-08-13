@@ -1,5 +1,8 @@
 const content = document.querySelector('#content');
 const resizeButton = document.querySelector('#resize');
+const blackButton = document.querySelector('#blackify');
+const colorButton = document.querySelector('#colorfy');
+const shadeButton = document.querySelector('shadfy');
 let gridSize = 16;
 let gridWidth = 500;
 let squareSize = Math.floor(gridWidth / gridSize);
@@ -45,15 +48,34 @@ function style(square,x,y){
     if(y > 0) square.style.borderTop = 'none';
 }
 
-function setSquareSize(){
-
-}
-
-function reSize(){
+function resize(){
     let newSize = prompt('How many squares per side?');
     createContainer(newSize);
 }
 
+function blackify(){
+    content.childNodes.forEach(function(square){
+        square.addEventListener('mouseenter',
+        () => square.style.backgroundColor = 'black');
+    })
+}
+
+function colorfy(){
+    content.childNodes.forEach(function(square){
+        square.addEventListener('mouseenter',
+        () => square.style.backgroundColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16));
+    })
+}
+
+function shadify(){
+    content.childNodes.forEach(function(square){
+        square.addEventListener('mouseenter',
+        () => square.style.background = '#')
+    })
+}
+
 createContainer(gridSize);
 
-resizeButton.addEventListener('click', reSize); 
+resizeButton.addEventListener('click', resize);
+blackButton.addEventListener('click', blackify); 
+colorButton.addEventListener('click', colorfy);
