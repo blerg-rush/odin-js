@@ -2,7 +2,7 @@ const content = document.querySelector('#content');
 const resizeButton = document.querySelector('#resize');
 const blackButton = document.querySelector('#blackify');
 const colorButton = document.querySelector('#colorfy');
-const shadeButton = document.querySelector('shadfy');
+const shadeButton = document.querySelector('#shadify');
 let gridSize = 16;
 let gridWidth = 500;
 let squareSize = Math.floor(gridWidth / gridSize);
@@ -55,8 +55,10 @@ function resize(){
 
 function blackify(){
     content.childNodes.forEach(function(square){
-        square.addEventListener('mouseenter',
-        () => square.style.backgroundColor = 'black');
+        square.addEventListener('mouseenter', () => {
+            square.style.backgroundColor = 'black';
+            square.style.opacity = '1';
+        })    
     })
 }
 
@@ -67,10 +69,16 @@ function colorfy(){
     })
 }
 
-function shadify(){
+function shadify(){     //Doesn't work after colorfy
     content.childNodes.forEach(function(square){
-        square.addEventListener('mouseenter',
-        () => square.style.background = '#')
+        square.addEventListener('mouseenter', () => {
+            if (square.style.backgroundColor != 'black'){
+                square.style.backgroundColor = 'black';
+                square.style.opacity = '0.1';
+            } else if (square.style.opacity < '1'){
+                square.style.opacity = `${Number(square.style.opacity)+0.1}`
+            }
+        })
     })
 }
 
@@ -79,3 +87,4 @@ createContainer(gridSize);
 resizeButton.addEventListener('click', resize);
 blackButton.addEventListener('click', blackify); 
 colorButton.addEventListener('click', colorfy);
+shadeButton.addEventListener('click', shadify);
