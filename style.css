@@ -1,0 +1,17 @@
+ul{
+    list-style-type: none;
+    margin: auto;
+    text-align: center;
+}
+
+button {
+    float: left;
+}
+
+#controls {
+    margin: auto;
+}
+
+#content {
+    clear: both;
+}
