@@ -2,7 +2,6 @@ let workTime = 1500;
 let breakTime = 300;
 let time = workTime;
 let workMode = true;
-let breakMode = false;
 let active;
 
 function startWork() {
@@ -15,8 +14,7 @@ function pauseWork() {
 
 function reset() {
   time = workTime;
-  workMode = true;
-  breakMode = false;
+  workMode = true;0
   display(time);
 }
 
@@ -24,7 +22,6 @@ function stopWork() {
   clearInterval(active);
   time = workTime;
   workMode = true;
-  breakMode = false;
   display(time);
 }
 
@@ -69,12 +66,10 @@ function swap() {
   if (workMode == true) {
     console.log("break time!")
     workMode = false;
-    breakMode = true;
     time = breakTime;
     display(time);
   } else {
     console.log("work time!")
-    breakMode = false;
     workMode = true;
     time = workTime;
     display(time);
