@@ -1,18 +1,11 @@
 let workTime = 1500;
 let breakTime = 300;
 let time = workTime;
-let workMode = false;
+let workMode = true;
 let breakMode = false;
 let active;
 
 function startWork() {
-  breakMode = false;
-  workMode = true;
-  time = workTime;
-  active = setInterval(countdown, 1000);
-}
-
-function resumeWork() {
   active = setInterval(countdown, 1000);
 }
 
@@ -20,23 +13,29 @@ function pauseWork() {
   clearInterval(active);
 }
 
+function reset() {
+  time = workTime;
+  workMode = true;
+  breakMode = false;
+  display(time);
+}
+
 function stopWork() {
   clearInterval(active);
   time = workTime;
-  workMode = false;
+  workMode = true;
   breakMode = false;
-  display(time); //this will want to update the DOM
+  display(time);
 }
 
 function setWorkTime(entry) {
-  workTime = entry;
+  workTime = parseInt(entry) * 60;
 }
 
 function setBreakTime(entry) {
-  breakTime = entry;
+  breakTime = parseInt(entry) * 60;
 }
 
-// done
 function display(time) {
   let minutes = Math.round(time / 60);
   let seconds = Math.round(time % 60);
@@ -44,10 +43,9 @@ function display(time) {
   let mString = stringify(minutes);
   let sString = stringify(seconds);
 
-  return `${mString}:${sString}`
+  return `${mString}:${sString}` //turn this into DOM manipulation
 }
 
-// done
 function stringify(number){
   let nString;
   if (number < 10) {
@@ -60,7 +58,7 @@ function stringify(number){
 
 function countdown() {
   time -= 1;
-  display(time); // this will want to update the DOM
+  display(time);
   console.log(display(time));
   if(time <= 0){
     swap();
@@ -73,13 +71,13 @@ function swap() {
     workMode = false;
     breakMode = true;
     time = breakTime;
-    //start timer
+    display(time);
   } else {
     console.log("work time!")
     breakMode = false;
     workMode = true;
     time = workTime;
-    //start timer
+    display(time);
   }
 }
 
