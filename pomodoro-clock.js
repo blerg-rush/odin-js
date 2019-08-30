@@ -14,7 +14,7 @@ function pauseWork() {
 
 function reset() {
   time = workTime;
-  workMode = true;0
+  workMode = true;
   display(time);
 }
 
