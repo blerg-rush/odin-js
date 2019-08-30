@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="pomodoro-clock.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -24,7 +25,8 @@
       <div class="jumbotron">
         <div class="container box">
           <div class="clock">
-            <h4>Clock Goes Here</h4>
+            <h4 id="displayTime">Clock Goes Here</h4>
+
           </div>
           <div class="buttons">
             <div class="row">
@@ -40,6 +42,15 @@
               </div>
             </div>
           </div>
+            <div class="setters">
+              <div class="wSet">
+                <input type="text">
+              </div>
+              <br>
+              <div class="bSet">
+                <input type="text">
+              </div>
+            </div>
         </div>
       </div>
     </main>
