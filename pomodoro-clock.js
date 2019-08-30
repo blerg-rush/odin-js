@@ -3,6 +3,7 @@ let breakTime = 300;
 let time = workTime;
 let workMode = true;
 let active;
+const displayTime = document.querySelector("#displayTime");
 
 function startWork() {
   active = setInterval(countdown, 1000);
@@ -40,7 +41,7 @@ function display(time) {
   let mString = stringify(minutes);
   let sString = stringify(seconds);
 
-  return `${mString}:${sString}` //turn this into DOM manipulation
+  displayTime.innerHTML = `${mString}:${sString}`
 }
 
 function stringify(number){
@@ -76,4 +77,4 @@ function swap() {
   }
 }
 
-
+display(time);
