@@ -82,3 +82,8 @@ function swap() {
 }
 
 display(time);
+
+playButton.addEventListener("click", startWork);
+pauseButton.addEventListener("click", pauseWork);
+stopButton.addEventListener("click", stopWork);
+resetButton.addEventListener("click", reset);
