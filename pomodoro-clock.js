@@ -4,6 +4,10 @@ let time = workTime;
 let workMode = true;
 let active;
 const displayTime = document.querySelector("#displayTime");
+const playButton = document.querySelector("#play");
+const pauseButton = document.querySelector("#pause");
+const stopButton = document.querySelector("#stop");
+const resetButton = document.querySelector("#backward");
 
 function startWork() {
   active = setInterval(countdown, 1000);
@@ -35,7 +39,7 @@ function setBreakTime(entry) {
 }
 
 function display(time) {
-  let minutes = Math.round(time / 60);
+  let minutes = Math.floor(time / 60);
   let seconds = Math.round(time % 60);
 
   let mString = stringify(minutes);
