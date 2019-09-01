@@ -1,51 +1,33 @@
 body {
-  background-color: #878787;
+  background-color: grey;
 }
+
 .jumbotron {
-  min-height: 500px;
-  margin-top: 6em;
-  text-align: center;
+  margin: 30px;
+}
+.box {
+  display: inline;
 }
 
 .clock {
   float: left;
-  display: block;
-  padding-left: 25%;
-  margin-top: 15%;
-  margin-bottom: 15%;
+  margin-left: 15%;
+  margin-top: 50px;
 }
 
-.buttons {
+.buttons, .btn {
   float: right;
-  display: block;
-  padding-right: 25%;
-  margin-top: 15%;
-  margin-bottom: 15%;
-}
-
-i {
-  margin-top: -50px;
-  padding: 1em;
-}
-
-.btn {
-  border: none;
   padding: 12px 16px;
+  margin-right: 15%;
   background: none;
-  cursor: pointer;
 }
 
 .setters {
-  padding-top: 20em;
-  max-height: 100px;
+  margin-top: 100px;
+  margin-left: 9%;
 }
 
-.wSet {
-  padding: 1em;
-  display: inline-block;
-}
-
-.bSet {
-  padding: 1em;
-  display: inline-block;
+.set {
+  color: black;
+  margin-left: 25px;
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="pomodoro-clock.js" defer></script>
@@ -26,14 +26,15 @@
         <div class="container box">
           <div class="clock">
             <h4 id="displayTime">Clock Goes Here</h4>
-
           </div>
+
           <div class="buttons">
             <div class="row">
               <div class="col-med-6">
                 <button class="btn" id="play"><i class="fa fa-play fa-lg"></i></button>
                 <button class="btn" id="pause"><i class="fa fa-pause fa-lg"></i></button>
               </div>
+
               <div class="row">
                 <div class="col-med-6">
                   <button class="btn" id="stop"><i class="fa fa-stop fa-lg"></i></button>
@@ -42,15 +43,18 @@
               </div>
             </div>
           </div>
-            <div class="setters">
-              <div class="wSet">
-                <input type="text">
-              </div>
-              <br>
-              <div class="bSet">
-                <input type="text">
-              </div>
+
+          <div class="setters">
+            <div class="wSet">
+              <input type="text" name="wSet" placeholder="Work Interval">
+              <button type="submit" class="set" >Set</button>
             </div>
+            <br>
+            <div class="bSet">
+              <input type="text" name="bSet" placeholder="Break Interval">
+              <button type="submit"  class="set" >Set</button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
