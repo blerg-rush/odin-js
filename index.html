@@ -21,42 +21,54 @@
       A pause button
       A stop button
       A restart button -->
-    <main class="container">
-      <div class="jumbotron">
-        <div class="container box">
+    <main class="container bg-white myContainer">
+      <div class="container">
+      <div class="row">
+        <div class="col-lg-6 myCol">
           <div class="clock">
             <h4 id="displayTime">Clock Goes Here</h4>
           </div>
-
-          <div class="buttons">
-            <div class="row">
-              <div class="col-med-6">
-                <button class="btn" id="play"><i class="fa fa-play fa-lg"></i></button>
-                <button class="btn" id="pause"><i class="fa fa-pause fa-lg"></i></button>
-              </div>
-
-              <div class="row">
-                <div class="col-med-6">
-                  <button class="btn" id="stop"><i class="fa fa-stop fa-lg"></i></button>
-                  <button class="btn" id="backward"><i class="fa fa-backward fa-lg"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="setters">
-            <div class="wSet">
-              <input type="text" name="wSet" placeholder="Work Interval">
-              <button type="submit" class="set" >Set</button>
-            </div>
-            <br>
-            <div class="bSet">
-              <input type="text" name="bSet" placeholder="Break Interval">
-              <button type="submit"  class="set" >Set</button>
-            </div>
+        </div>
+          <div class="col-lg-6 myCol">
+            <button class="btn" id="play"><i class="fa fa-play fa-lg"></i></button>
+            <button class="btn" id="pause"><i class="fa fa-pause fa-lg"></i></button>
           </div>
         </div>
-      </div>
+          <div class="row">
+            <div class="col-lg-6 myCol">
+            </div>
+            <div class="col-lg-6 myCol">
+              <button class="btn" id="stop"><i class="fa fa-stop fa-lg"></i></button>
+              <button class="btn" id="backward"><i class="fa fa-backward fa-lg"></i></button>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4 myCol">
+              <div class="wSet">
+                <input type="text" name="wSet" placeholder="Work Interval">
+              </div>
+            </div>
+            <div class="col-md-4 myCol">
+              <button type="submit" class="submit" >Set</button>
+            </div>
+            <div class="col-md-4 myCol">
+              <input type="text" placeholder="Display new value"></div>
+            </div>
+            <br>
+          <div class="row">
+            <div class="col-md-4 myCol">
+              <div class="bSet">
+                <input type="text" name="bSet" placeholder="Break Interval">
+              </div>
+            </div>
+            <div class="col-md-4 myCol">
+              <button type="submit" class="submit" >Set</button>
+            </div>
+            <div class="col-md-4 myCol">
+              <input type="text" placeholder="Display new value"></div>
+            </div>
+          </div>
     </main>
   </body>
 </html>
