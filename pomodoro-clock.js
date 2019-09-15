@@ -8,6 +8,12 @@ const playButton = document.querySelector("#play");
 const pauseButton = document.querySelector("#pause");
 const stopButton = document.querySelector("#stop");
 const resetButton = document.querySelector("#backward");
+const workSetButton = document.querySelector("#workSet");
+const breakSetButton = document.querySelector("#breakSet");
+const newWorkInterval = document.querySelector("#newWorkInterval")
+const newBreakInterval = document.querySelector("#newBreakInterval")
+const workInterval = document.querySelector("#workInterval")
+const breakInterval = document.querySelector("#breakInterval")
 
 function startWork() {
   active = setInterval(countdown, 1000);
@@ -32,10 +38,12 @@ function stopWork() {
 
 function setWorkTime(entry) {
   workTime = parseInt(entry) * 60;
+  workInterval.value = workTime / 60;
 }
 
 function setBreakTime(entry) {
   breakTime = parseInt(entry) * 60;
+  breakInterval.value = breakTime / 60;
 }
 
 function display(time) {
@@ -81,9 +89,23 @@ function swap() {
   }
 }
 
+newWorkInterval.value = workTime / 60;
+newBreakInterval.value = breakTime / 60;
+workInterval.value = workTime / 60;
+breakInterval.value = breakTime / 60;
+
+
 display(time);
 
 playButton.addEventListener("click", startWork);
 pauseButton.addEventListener("click", pauseWork);
 stopButton.addEventListener("click", stopWork);
 resetButton.addEventListener("click", reset);
+workSetButton.addEventListener("click", function(){
+  let minutes = newWorkInterval.value;
+  setWorkTime(minutes);
+});
+breakSetButton.addEventListener("click", function(){
+  let minutes = newBreakInterval.value;
+  setBreakTime(minutes);
+});
