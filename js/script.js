@@ -42,11 +42,24 @@ function createBookCard (book) {
   read.clasName = 'card-text'
   read.innerText = `read: ${book.read ? 'yes' : 'no'}`
 
+  const remove = document.createElement('button')
+  remove.type = 'button'
+  remove.className = 'btn btn-sm btn-danger'
+  remove.innerText = 'Remove'
+
   cardBody.appendChild(title)
   cardBody.appendChild(author)
   cardBody.appendChild(pages)
   cardBody.appendChild(read)
+  cardBody.appendChild(remove)
   card.appendChild(cardBody)
+
+  remove.onclick = function () {
+    myLibrary.splice(this.parentElement.parentElement.dataset.id, 1)
+    clear()
+    render(myLibrary)
+  }
+
   return card
 }
 
