@@ -21,6 +21,7 @@ function addBookToLibrary (book) {
 function createBookCard (book) {
   const card = document.createElement('div')
   card.className = 'card book-card mx-2 mb-2'
+  card.dataset.id = myLibrary.indexOf(book)
 
   const cardBody = document.createElement('div')
   cardBody.className = 'card-body'
