@@ -55,3 +55,11 @@ function render (library) {
     booksList.appendChild(createBookCard(book))
   })
 }
+
+nameOfTheWind = new Book('The Name of the Wind', 'Patrick Rothfuss', 662, true)
+wiseMansFear = new Book("The Wise Man's Fear", 'Patrick Rothfuss', 994, true)
+neverwhere = new Book('Neverwhere', 'Neil Gaiman', 400, true)
+doomsdayBook = new Book('Doomsday Book', 'Connie Willis', 592, true)
+toSayNothingOfTheDog = new Book('To Say Nothing of the Dog', 'Connie Willis', 434, true)
+blackoutAllClear = new Book('Blackout/All Clear', 'Connie Willis', 1168, true)
+anathem = new Book('Anathem', 'Neal Stephenson', 937, false)
