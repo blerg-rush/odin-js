@@ -56,6 +56,13 @@ function render (library) {
   })
 }
 
+function clear () {
+  const booklist = document.querySelector('.books')
+  while (booklist.firstChild) {
+    booklist.removeChild(booklist.firstChild)
+  }
+}
+
 const nameOfTheWind = new Book('The Name of the Wind', 'Patrick Rothfuss', 662, true)
 const wiseMansFear = new Book("The Wise Man's Fear", 'Patrick Rothfuss', 994, true)
 const neverwhere = new Book('Neverwhere', 'Neil Gaiman', 400, true)
@@ -73,3 +80,24 @@ addBookToLibrary(blackoutAllClear)
 addBookToLibrary(anathem)
 
 render(myLibrary)
+
+const bookForm = document.querySelector('#book-form')
+const bookTitle = document.querySelector('#book-title')
+const bookAuthor = document.querySelector('#book-author')
+const bookPages = document.querySelector('#book-pages')
+const bookRead = document.querySelector('#book-read')
+
+bookForm.onsubmit = function (event) {
+  event.preventDefault()
+
+  const newBook = new Book(
+    bookTitle.value,
+    bookAuthor.value,
+    Number.parseInt(bookPages.value),
+    bookRead.checked
+  )
+  addBookToLibrary(newBook)
+  clear()
+  render(myLibrary)
+  bookForm.reset()
+}
