@@ -20,7 +20,7 @@ function addBookToLibrary (book) {
 
 function createBookCard (book) {
   const card = document.createElement('div')
-  card.className = 'card'
+  card.className = 'card book-card mx-2 mb-2'
 
   const cardBody = document.createElement('div')
   cardBody.className = 'card-body'
