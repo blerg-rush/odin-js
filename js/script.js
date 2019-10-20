@@ -39,7 +39,7 @@ function createBookCard (book) {
 
   const read = document.createElement('p')
   read.clasName = 'card-text'
-  read.innerText = `read: ${read ? 'yes' : 'no'}`
+  read.innerText = `read: ${book.read ? 'yes' : 'no'}`
 
   cardBody.appendChild(title)
   cardBody.appendChild(author)
