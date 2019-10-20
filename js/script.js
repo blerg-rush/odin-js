@@ -21,7 +21,6 @@ function addBookToLibrary (book) {
 function createBookCard (book) {
   const card = document.createElement('div')
   card.className = 'card book-card mx-2 mb-2'
-  card.dataset.id = myLibrary.indexOf(book)
 
   const cardBody = document.createElement('div')
   cardBody.className = 'card-body'
@@ -46,6 +45,7 @@ function createBookCard (book) {
   remove.type = 'button'
   remove.className = 'btn btn-sm btn-danger'
   remove.innerText = 'Remove'
+  remove.dataset.id = myLibrary.indexOf(book)
 
   cardBody.appendChild(title)
   cardBody.appendChild(author)
@@ -55,7 +55,7 @@ function createBookCard (book) {
   card.appendChild(cardBody)
 
   remove.onclick = function () {
-    myLibrary.splice(this.parentElement.parentElement.dataset.id, 1)
+    myLibrary.splice(this.dataset.id, 1)
     clear()
     render(myLibrary)
   }
