@@ -43,19 +43,34 @@ function createBookCard (book) {
 
   const remove = document.createElement('button')
   remove.type = 'button'
-  remove.className = 'btn btn-sm btn-danger'
+  remove.className = 'btn btn-sm btn-danger mb-1'
   remove.innerText = 'Remove'
   remove.dataset.id = myLibrary.indexOf(book)
+
+  const toggleRead = document.createElement('button')
+  toggleRead.type = 'button'
+  toggleRead.className = 'btn btn-sm btn-info'
+  toggleRead.innerText = 'Toggle read'
+  toggleRead.dataset.id = myLibrary.indexOf(book)
 
   cardBody.appendChild(title)
   cardBody.appendChild(author)
   cardBody.appendChild(pages)
   cardBody.appendChild(read)
   cardBody.appendChild(remove)
+  cardBody.appendChild(toggleRead)
   card.appendChild(cardBody)
 
   remove.onclick = function () {
     myLibrary.splice(this.dataset.id, 1)
+    clear()
+    render(myLibrary)
+  }
+
+  toggleRead.onclick = function () {
+    myLibrary[this.dataset.id].read
+      ? myLibrary[this.dataset.id].read = false
+      : myLibrary[this.dataset.id].read = true
     clear()
     render(myLibrary)
   }
