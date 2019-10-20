@@ -17,3 +17,10 @@ Book.prototype.info = function () {
 function addBookToLibrary (book) {
   myLibrary.push(book)
 }
+
+function render (library) {
+  const booksList = document.querySelector('.books')
+  library.forEach(book => {
+    booksList.appendChild(createBookCard(book))
+  })
+}
