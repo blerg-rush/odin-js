@@ -1,3 +1,5 @@
+const myLibrary = []
+
 function Book (title, author, pages, read = false) {
   this.title = title
   this.author = author
@@ -10,4 +12,8 @@ Book.prototype.info = function () {
           by ${this.author}, \
           ${this.pages} pages, \
           ${this.read ? 'already read' : 'not read yet'}`
+}
+
+function addBookToLibrary (book) {
+  myLibrary.push(book)
 }
