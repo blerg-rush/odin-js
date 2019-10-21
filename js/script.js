@@ -86,6 +86,11 @@ function clear () {
   }
 }
 
+function refresh (library) {
+  clear()
+  render(library)
+}
+
 const nameOfTheWind = new Book('The Name of the Wind', 'Patrick Rothfuss', 662, true)
 const wiseMansFear = new Book("The Wise Man's Fear", 'Patrick Rothfuss', 994, true)
 const neverwhere = new Book('Neverwhere', 'Neil Gaiman', 400, true)
@@ -120,21 +125,18 @@ bookForm.onsubmit = function (event) {
     bookRead.checked
   )
   addBookToLibrary(newBook)
-  clear()
-  render(myLibrary)
+  refresh(myLibrary)
   bookForm.reset()
 }
 
 function removeBook (index) {
   myLibrary.splice(index)
-  clear()
-  render(myLibrary)
+  refresh(myLibrary)
 }
 
 function toggleRead (index) {
   myLibrary[index].read
     ? myLibrary[index].read = false
     : myLibrary[index].read = true
-  clear()
-  render(myLibrary)
+  refresh(myLibrary)
 }
