@@ -19,63 +19,57 @@ function addBookToLibrary (book) {
 }
 
 function createBookCard (book) {
-  const card = document.createElement('div')
-  card.className = 'card book-card mx-2 mb-2'
+  const bookCard = document.createElement('div')
+  bookCard.className = 'bookCard book-bookCard mx-2 mb-2'
 
   const cardBody = document.createElement('div')
-  cardBody.className = 'card-body'
+  cardBody.className = 'bookCard-body'
 
   const title = document.createElement('h5')
-  title.className = 'card-title'
+  title.className = 'bookCard-title'
   title.innerText = book.title
 
   const author = document.createElement('h6')
-  author.className = 'card-subtitle mb-2 text-muted'
+  author.className = 'bookCard-subtitle mb-2 text-muted'
   author.innerText = book.author
 
   const pages = document.createElement('p')
-  pages.className = 'card-text'
+  pages.className = 'bookCard-text'
   pages.innerText = `pages: ${book.pages}`
 
   const read = document.createElement('p')
-  read.clasName = 'card-text'
+  read.clasName = 'bookCard-text'
   read.innerText = `read: ${book.read ? 'yes' : 'no'}`
 
-  const remove = document.createElement('button')
-  remove.type = 'button'
-  remove.className = 'btn btn-sm btn-danger mb-1'
-  remove.innerText = 'Remove'
-  remove.dataset.id = myLibrary.indexOf(book)
+  const removeButton = document.createElement('button')
+  removeButton.type = 'button'
+  removeButton.className = 'btn btn-sm btn-danger mb-1'
+  removeButton.innerText = 'Remove'
+  removeButton.dataset.id = myLibrary.indexOf(book)
 
-  const toggleRead = document.createElement('button')
-  toggleRead.type = 'button'
-  toggleRead.className = 'btn btn-sm btn-info'
-  toggleRead.innerText = 'Toggle read'
-  toggleRead.dataset.id = myLibrary.indexOf(book)
+  const readButton = document.createElement('button')
+  readButton.type = 'button'
+  readButton.className = 'btn btn-sm btn-info'
+  readButton.innerText = 'Toggle read'
+  readButton.dataset.id = myLibrary.indexOf(book)
 
   cardBody.appendChild(title)
   cardBody.appendChild(author)
   cardBody.appendChild(pages)
   cardBody.appendChild(read)
-  cardBody.appendChild(remove)
-  cardBody.appendChild(toggleRead)
-  card.appendChild(cardBody)
+  cardBody.appendChild(removeButton)
+  cardBody.appendChild(readButton)
+  bookCard.appendChild(cardBody)
 
-  remove.onclick = function () {
-    myLibrary.splice(this.dataset.id, 1)
-    clear()
-    render(myLibrary)
+  removeButton.onclick = function () {
+    removeBook(this.dataset.id, 1)
   }
 
-  toggleRead.onclick = function () {
-    myLibrary[this.dataset.id].read
-      ? myLibrary[this.dataset.id].read = false
-      : myLibrary[this.dataset.id].read = true
-    clear()
-    render(myLibrary)
+  readButton.onclick = function () {
+    toggleRead(this.dataset.id)
   }
 
-  return card
+  return bookCard
 }
 
 function render (library) {
@@ -129,4 +123,18 @@ bookForm.onsubmit = function (event) {
   clear()
   render(myLibrary)
   bookForm.reset()
+}
+
+function removeBook (index) {
+  myLibrary.splice(index)
+  clear()
+  render(myLibrary)
+}
+
+function toggleRead (index) {
+  myLibrary[index].read
+    ? myLibrary[index].read = false
+    : myLibrary[index].read = true
+  clear()
+  render(myLibrary)
 }
