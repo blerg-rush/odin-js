@@ -62,7 +62,7 @@ function createBookCard (book) {
   bookCard.appendChild(cardBody)
 
   removeButton.onclick = function () {
-    removeBook(this.dataset.id, 1)
+    removeBook(this.dataset.id)
   }
 
   readButton.onclick = function () {
@@ -89,25 +89,8 @@ function clear () {
 function refresh (library) {
   clear()
   render(library)
+  storeLibrary(library)
 }
-
-const nameOfTheWind = new Book('The Name of the Wind', 'Patrick Rothfuss', 662, true)
-const wiseMansFear = new Book("The Wise Man's Fear", 'Patrick Rothfuss', 994, true)
-const neverwhere = new Book('Neverwhere', 'Neil Gaiman', 400, true)
-const doomsdayBook = new Book('Doomsday Book', 'Connie Willis', 592, true)
-const toSayNothingOfTheDog = new Book('To Say Nothing of the Dog', 'Connie Willis', 434, true)
-const blackoutAllClear = new Book('Blackout/All Clear', 'Connie Willis', 1168, true)
-const anathem = new Book('Anathem', 'Neal Stephenson', 937, false)
-
-addBookToLibrary(nameOfTheWind)
-addBookToLibrary(wiseMansFear)
-addBookToLibrary(neverwhere)
-addBookToLibrary(doomsdayBook)
-addBookToLibrary(toSayNothingOfTheDog)
-addBookToLibrary(blackoutAllClear)
-addBookToLibrary(anathem)
-
-render(myLibrary)
 
 const bookForm = document.querySelector('#book-form')
 const bookTitle = document.querySelector('#book-title')
@@ -130,7 +113,7 @@ bookForm.onsubmit = function (event) {
 }
 
 function removeBook (index) {
-  myLibrary.splice(index)
+  myLibrary.splice(index, 1)
   refresh(myLibrary)
 }
 
@@ -140,3 +123,20 @@ function toggleRead (index) {
     : myLibrary[index].read = true
   refresh(myLibrary)
 }
+
+function storeLibrary (library) {
+  window.localStorage.clear()
+  library.forEach((book, index) => {
+    window.localStorage.setItem(index, JSON.stringify(book))
+  })
+}
+
+function retrieveLibrary () {
+  Object.keys(window.localStorage).forEach((key) => {
+    addBookToLibrary(JSON.parse(window.localStorage.getItem(key)))
+  })
+}
+
+retrieveLibrary()
+
+render(myLibrary)
