@@ -1,0 +1,28 @@
+body {
+  background-color: #454545;
+}
+
+.myCol {
+  text-align: center;
+}
+
+.myContainer {
+  min-height: 500px;
+  margin-top: 3em;
+  padding: 10em;
+  box-shadow: 2.5px 5px #888888;
+}
+.clock {
+  /* float: left;
+  margin-left: 15%; */
+  /* margin-top: 50px; */
+}
+
+.buttons, .btn {
+  background: none;
+}
+
+.set {
+  color: black;
+  margin-left: 25px;
+}
