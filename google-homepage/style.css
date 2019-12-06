@@ -1,0 +1,107 @@
+body, a.n {
+    font-family: arial, sans-serif;
+    font-size: 13px;
+    color: #222;
+}
+a.f {
+    color: rgb(95, 99, 104);
+}
+a {
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+}
+li {
+    margin: 10px;
+}
+.navbar {
+    position: sticky;
+    min-width: 800px;
+    top: 16px;
+    padding: 0 10px;
+}
+li.left {
+    float: left;
+}
+li.right {
+    float: right;
+}
+.icon {
+    height: 18px;
+}
+.main {
+    padding-top: 190px;
+}
+.buttons {
+    padding-top: 10px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.button {
+    margin: 0 3px;
+    height: 40px;
+    border-radius: 4px;
+    padding: 10px 18px;
+    background-color: rgb(242, 242, 242);
+    border: 0;
+}
+.bottom{
+    background-color: rgb(34, 34, 34);
+}
+#border{
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: rgb(228, 228, 228);
+    margin-bottom: 40px;
+}
+.footer{
+    height: 40px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    color: rgb(95, 99, 104);
+    background-color: rgb(242, 242, 242);
+    padding: 0 10px;
+}
+a.f {
+    color: rgb(95, 99, 104);
+}
+.country{
+    padding-left: 20px;
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 15px;
+}
+#logo {
+    width: 272px;
+    height: 92px;
+    display: block;
+    margin: auto;
+    padding-bottom: 25px;
+}
+#search-bar {
+    width: 550px;
+    height: 40px;
+    display: block;
+    margin: auto;
+    border-radius: 25px;
+    padding-left: 30px;
+    border: solid;
+    border-color: rgb(228, 228, 228);
+    border-width: 1px;
+}
+ul.botleft {
+    padding-left: 10px;
+}
+ul.botright {
+    padding-right: 37px;
+}
